@@ -1,10 +1,13 @@
 class Solution:
-   def twoSum(self, nums, target: int):
-        dic = {}
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        map = {}
         for i in range(len(nums)):
-            temp = target - nums[i]
-            if temp in dic:
-                return [dic[temp], i]
-            dic[nums[i]] = i
-        return []
-        
+            map[nums[i]] = i # 2,0 7,1  11,2
+
+        for i in range(len(nums)):
+            if map.get(target-nums[i]) != None:
+                element = map.get(target-nums[i])
+                if element == i:
+                    continue
+                return [i, element]
+                
